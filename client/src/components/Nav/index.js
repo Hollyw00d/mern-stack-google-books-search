@@ -1,16 +1,22 @@
 import React from "react";
 
+const navStyles = {
+  margin: 'auto'
+};
+
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <span className="navbar-brand">
+    <nav className="bg-success text-white p-3 d-flex">
+      <span className="navbar-brand align-self-center" style={navStyles}>
         MERN Stack Google Books Search
       </span>
-      <a className="navbar-brand btn border border-white" href="/">
-        Search
-      </a> <span className="navbar-brand">/</span> <a className="navbar-brand btn border border-white" href="/saved">
-        Saved
-      </a>
+      <p className="align-self-center" style={navStyles}>
+        <a className="btn border border-white text-white" href="/">
+          Search
+        </a> <span>/</span> <a className="btn border border-white text-white" href="/saved">
+          Saved
+        </a>
+      </p>
     </nav>
   );
 }
