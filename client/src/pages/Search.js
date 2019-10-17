@@ -34,6 +34,20 @@ class Search extends Component {
     }
   };
 
+  saveBook = bookInfo => {
+
+    // Do API call
+    API.saveBook(bookInfo)
+      .then(res => {
+        alert('Saved book!');
+      })
+      .catch(err => {
+        alert('Problem in saving the book');
+        console.log('Exception in API.saveBook ', err.response);
+      });
+
+  };
+
   render() {
     return (
       <Container fluid>
@@ -63,7 +77,12 @@ class Search extends Component {
                         <strong>Title:</strong> {book.volumeInfo.title}<br />
                         <strong>Year Published:</strong> {book.volumeInfo.publishedDate}<br />
                         <a href={book.volumeInfo.previewLink} target="_blank"><strong>Google Book Link</strong></a><br />
-                        <br />
+                        <button 
+                          className="btn border" 
+                          onClick={() => this.saveBook(book.volumeInfo)}>
+                          Saved Book
+                        </button>
+                        <br /><br />
                       </li>
                     );
                   })
